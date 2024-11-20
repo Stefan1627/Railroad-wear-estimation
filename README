@@ -1,0 +1,79 @@
+CALMAC Stefan-314CC
+
+Implementarea acestei teme nu mi-a luat foarte mult timp, undeva la 8 ore.
+Acest program este conceput pentru a reda o statistica in legatura cu sistemul
+de cai ferate. Acceptă argumente de linie de comandă pentru a determina ce
+sarcină săefectueze și operează pe fișierele de intrare furnizate.
+
+Pentru indexarea oraselor am ales sa le adaug pe toate intr-un vector si sa
+    folosesc mai departe indicele acestora in rezolvarea problemelor
+
+main.c:
+    Se deterima sarcina ce va trebui executata in urma inputului utilizatorului
+    si se apeleaza functiile corespunzatoare.
+
+task1.c:
+    check_exist(): Aceasta functie returneaza indicele orasului daca exista
+                   deja in lista noastra, iar daca nu returneaza valoarea -1
+    
+    get_max_neigh(): Aceasta functie returneaza cel mai mare vecin al
+                     tronsonului de la capatul liniei, verificand toate
+                     nodurile adiacente acestuia
+                    
+    copy_list(): Aceasta aloca si copiaza elementele pentru lista de adiacenta,
+                 pentru a evita pierderea datelor, erori de calcul.
+
+    add_node(): Aceasta functie adauga o ruta noua in lista de adiacenta
+
+    list_update(): Aceasta functie asigura, ca dupa trecerea fiecarui an,
+                   elementele din lista originala sa fie actualizate.
+
+    read_line(): Aceasta functie citeste, pe rand, din fisierul de comanda
+                 fiecare linie si creeaza lista de adiacenta
+
+    year_traversal(): Aceasta functie modifica elementele grafului, odata cu
+                      trecerea anilor, conform formulei de calcul date.
+
+    verify_tol(): Aceasta functie returneaza care rute ar trebui pastrate dupa
+                  trecerea a n ani, raportandu-se la o toleranta de uzura "l".
+                
+    print(): Aceasta functie printeaza numarul anilor, rutele modificate si
+             indicele rutelor care ar trebui pastrate
+
+    task1(): Aceasta functie citeste primul set de date, adica nr de ani, nr de
+             rute si toleranta, aloca memoria si elibereaza memoria.
+
+task2.c
+    Cu ajutorul algoritmului lui Dijkstra retin intr-un vector drumurile de
+    cost minim si costul acestora, apoi le ordonez dupa costuri, si, la final,
+    modific indicele de pastrare din fiecare nod, conform vecotrului cu
+    drumurile de cost minim pana la atingerea numarului maxim de muchii de
+    pastrat.
+
+    sort_cost(): Aceasta functie returneaza un vector care contine sortarea
+                 dupa indici a vectorului de costuri minime.
+            
+    save_paths(): Aceasta functie modifica indicele de pastrare a nodurilor
+                  pentru drumul dat.
+            
+    delete_null_elements(): Aceasta functie sterge elementele nule din vector
+
+    add_node2_0(): Aceasta functie adauga o ruta noua in lista de adiacenta
+
+    create_adj_list(): Aceasta functie citeste, pe rand, din fisierul de
+                       comanda fiecare linie si creeaza lista de adiacenta
+    
+    dijskstra(): Aceasta functie returneaza un vector cu costurile minime
+                 pentru fiecare nod, folosind algoritmul lui Dijkstra.
+                 Returneaza de asemenea si un vector continand drumurile.
+            
+    optimize_railroad(): Aceasta functie modifica indicele de pastrare al
+                         tuturor nodurilor, ating numarul maxim de muchii
+                         dorite.
+
+    print2_0(): Aceasta functie printeaza numarul de rute pastrate si rutele
+                respective
+    
+    task2(): Aceasta functie citeste primul set de date, adica orasul de start,
+             nr max de rute care trebuie pastrate si nr de rute initiale, aloca
+             memoria si elibereaza memoria.
